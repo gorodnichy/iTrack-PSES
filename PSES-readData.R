@@ -41,7 +41,7 @@ if (T) {
   }
   
 }
-# Later all this should be renames from my* to pses.*
+# Later all this should be renamed from my* to pses.*
 
 # TODO: In Best OOP practices, this should be a Structure(aka List in R) or (better) R6 Class !!
 # 
@@ -174,7 +174,7 @@ getDeptAboveBelow <- function ( id = myID ) {
 # TODO rename : selectDepts -> selectDeptTree Or  getDeptsAboveBelow ()
 selectDeptTree <- function ( id = myID) {
   
-  if (  bPSES_READ==F) {
+  if (bPSES_READ==F) {
     print('getRESULTS(): PSES data NOT initialized ! -  Please Run readPsesData()')
     return (dtRESULT)
   } 
@@ -193,7 +193,6 @@ selectDeptTree <- function ( id = myID) {
   
   setkeyv(dtDepartments, PSES_ID_COLS[1:myLevel]) 
   dtDeptSelected <<- 
-    
     dtDepartments[as.list(id[1:myLevel])] %>% # get ALL children
     
     rbind(dtDepartments[                      # add ALL parents
@@ -212,8 +211,8 @@ selectDeptTree <- function ( id = myID) {
 
 
 
-getRESULTS <- function(id = c(83,200,304,0,0), aQs=c("Q43"), aYears=c(2018),depth=1) {
-  if (  bPSES_READ==F) {
+getRESULTS <- function(id, aQs, aYears=c(2018),depth=1) {
+  if (bPSES_READ==F) {
     print('getRESULTS(): PSES data NOT initialized ! -  Please Run readPsesData()')
     return (dtRESULT)
   }
