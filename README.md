@@ -3,3 +3,5 @@
  
  
  Main functions to read PSES data from Open Canada sites.
+ 
+ See also https://github.com/gorodnichy/iTrack-PSES-development for full Development code.
